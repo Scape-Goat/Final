@@ -29,13 +29,13 @@ public class Board extends JPanel implements ActionListener {
         g.setColor(Color.blue);
         player.paint(g);
         g.setColor(Color.red);
-        platform.paint(g);
+        platforms[0].paint(g);
     }
 
 
     public void actionPerformed(ActionEvent e) {
-        player.update();
-        platform.update(player);
+        player.update(platforms);
+        platforms[0].update(player);
         repaint();
     }
     private void printRainbowString(String s, int width, int XPos, int YPos, Graphics g2d){
