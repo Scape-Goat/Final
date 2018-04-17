@@ -1,7 +1,8 @@
 import java.awt.*;
 
 public class Platform {
-    int x,y,width,height, dx = 0, dy = 0;
+    int x,y,width,height;
+    static int dx = 0, dy = 0;
     public Platform(int x, int y, int width, int height){
         this.x = x;
         this.y = y;

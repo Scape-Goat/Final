@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 public class Board extends JPanel implements ActionListener {
 
     Player player;
-   Platform[] platforms;
+   List<Platform> platforms = new ArrayList<>();
     Timer timer;
     int entityIndex = 5, ticks = 0;
     private long lastShot, currentShot;
@@ -18,8 +18,8 @@ public class Board extends JPanel implements ActionListener {
         setBackground(Color.black);
         timer = new Timer(1000 / 60, this);
         player = new Player(300,300, 30,30);
-        platforms = new Platform[1];
-            platforms[0] =   new Platform(400,200, 100, 20);
+        platforms.add(new Platform(0,-100, 100, 20));
+        platforms.add(new Platform(300,600, 100, 20));
     }
     public void start(){
         timer.start();
@@ -29,13 +29,15 @@ public class Board extends JPanel implements ActionListener {
         g.setColor(Color.blue);
         player.paint(g);
         g.setColor(Color.red);
-        platforms[0].paint(g);
+        for(Platform platform: platforms)
+            platform.paint(g);
     }
 
 
     public void actionPerformed(ActionEvent e) {
         player.update(platforms);
-        platforms[0].update(player);
+        for(Platform platform: platforms)
+        platform.update(player);
         repaint();
     }
     private void printRainbowString(String s, int width, int XPos, int YPos, Graphics g2d){

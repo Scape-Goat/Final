@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 public class Game extends JFrame{
 
     Board board;
-
+    long last = System.currentTimeMillis(), current;
     static boolean up=false,left = false,right = false,down = false, jump = false;
 
     public Game(){
@@ -91,6 +91,9 @@ public class Game extends JFrame{
 
                 if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT){
                     right = false;
+                }
+                if(e.getKeyCode() == KeyEvent.VK_SPACE){
+                    jump = false;
                 }
 
 
