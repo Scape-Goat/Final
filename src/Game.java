@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 public class Game extends JFrame{
 
     Board board;
+    int jumpPower = 0;
     long last = System.currentTimeMillis(), current;
     static boolean up=false,left = false,right = false,down = false, jump = false;
 
@@ -56,6 +57,7 @@ public class Game extends JFrame{
             public void keyPressed(KeyEvent e) {
                 if(e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP){
                     up = true;
+
                 }
 
                 if(e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN){
@@ -64,10 +66,12 @@ public class Game extends JFrame{
 
                 if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT){
                     left = true;
+                    System.out.println(jump);
                 }
 
                 if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT){
                     right = true;
+                    System.out.println(jump);
                 }
 
                 if(e.getKeyCode() == KeyEvent.VK_SPACE && !jump){

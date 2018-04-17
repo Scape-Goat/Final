@@ -2,8 +2,10 @@ import java.awt.*;
 
 public class Platform {
     int x,y,width,height;
+    Color color;
     static int dx = 0, dy = 0;
-    public Platform(int x, int y, int width, int height){
+    public Platform(Color color,int x, int y, int width, int height){
+        this.color = color;
         this.x = x;
         this.y = y;
         this.width = width;
@@ -16,6 +18,7 @@ public class Platform {
     }
 
     public void paint(Graphics g){
+        g.setColor(color);
         g.fillRect(x, y, width, height);
     }
 

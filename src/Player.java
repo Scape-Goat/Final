@@ -15,16 +15,16 @@ public class Player {
     public void update(List<Platform> platforms){
 
         //region Move Left and Right
-        if(Game.isLeft() && !Game.isRight()){
-            dx = -5;
 
-        }
-        else if(Game.isRight() && !Game.isLeft()){
-            dx = 5;
-        }
-        else{
-            dx = 0;
-        }
+            if (Game.isLeft() && !Game.isRight()) {
+                dx = -5;
+
+            } else if (Game.isRight() && !Game.isLeft()) {
+                dx = 5;
+            } else {
+                dx = 0;
+            }
+
 
         //endregion
 
@@ -50,6 +50,14 @@ public class Player {
         }
         //endregion
 
+    }
+
+    public void attack(int attackType){
+        switch(attackType){
+            case 0: break;
+            case 1: break;
+            case 2: break;
+        }
     }
 
 
