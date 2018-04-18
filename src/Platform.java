@@ -20,6 +20,7 @@ public class Platform {
     public void paint(Graphics g){
         g.setColor(color);
         g.fillRect(x, y, width, height);
+        g.drawRect(x, y, width, height);
     }
 
     public Rectangle getBounds(){

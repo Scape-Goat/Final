@@ -4,10 +4,12 @@ import java.util.List;
 
 public class Player {
     boolean jumping = false;
+    boolean onGround = false;
     int x, y, width, height, dx = 0, dy = 0;
+
     public Player(int x, int y, int width, int height){
-        this.x = x;
-        this.y = y;
+        this.x = x-width/2 ;
+        this.y = y-height/2;
         this.width = width;
         this.height = height;
     }
@@ -17,10 +19,10 @@ public class Player {
         //region Move Left and Right
 
             if (Game.isLeft() && !Game.isRight()) {
-                dx = -5;
+                dx = -10;
 
             } else if (Game.isRight() && !Game.isLeft()) {
-                dx = 5;
+                dx = 10;
             } else {
                 dx = 0;
             }
@@ -30,23 +32,27 @@ public class Player {
 
         //region Jumping
         if (Game.isJumping() && !jumping) {
-            dy = -30;
-            jumping = true;
-        }
+            dy = -20;
+            jumping = true;        }
         else {
+                onGround = false;
             for(Platform platform: platforms) {
                 if (getBounds().intersects(platform.getBounds())) {
                     dy = 0;
                     jumping = false;
 
                     if (y+height-1 > platform.y) {
-                        dy -= 1;
+                        dy = -1;
                     }
+                    onGround = true;
                     break;
-                }else {
-                    dy += 1;
+
                 }
             }
+            if(!onGround)
+                dy +=1;
+
+
         }
         //endregion
 
