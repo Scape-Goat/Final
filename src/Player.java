@@ -5,6 +5,7 @@ import java.util.List;
 public class Player {
     boolean jumping = false;
     boolean onGround = false;
+    int angle = 0;
     int x, y, width, height, dx = 0, dy = 0;
 
     public Player(int x, int y, int width, int height){
@@ -15,7 +16,7 @@ public class Player {
     }
 
     public void update(List<Platform> platforms){
-
+        /*
         //region Move Left and Right
 
             if (Game.isLeft() && !Game.isRight()) {
@@ -55,8 +56,13 @@ public class Player {
 
         }
         //endregion
-
+        */
+        angle+=7.5;
+        x = (int) (100 * Math.sin(Math.toRadians( angle)))+300;
+        y = (int) (0 *Math.cos(Math.toRadians( angle)))+300;
     }
+
+//}
 
     public void attack(int attackType){
         switch(attackType){

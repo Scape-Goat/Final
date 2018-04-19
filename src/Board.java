@@ -18,9 +18,8 @@ public class Board extends JPanel implements ActionListener {
         setBackground(Color.black);
         timer = new Timer(1000 / 60, this);
         player = new Player(300,300, 30,30);
-        for(int y = 800; y> -80000; y-=400) {
-            platforms.add(new Platform(Color.red, -200, y, 1000, 20));
-            platforms.add(new Platform(Color.red, 300, y-400, 100, 40));
+        for(int x = 150; x<30000; x+=300){
+            platforms.add(new Platform(Color.red, x, 400, 150, 150));
         }
 
 
