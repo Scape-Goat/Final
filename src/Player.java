@@ -20,10 +20,10 @@ public class Player {
         //region Move Left and Right
 
             if (Game.isLeft() && !Game.isRight()) {
-                dx = -10;
+                dx = -7;
 
             } else if (Game.isRight() && !Game.isLeft()) {
-                dx = 10;
+                dx = 7;
             } else {
                 dx = 0;
             }

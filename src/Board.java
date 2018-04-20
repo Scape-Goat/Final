@@ -20,18 +20,16 @@ public class Board extends JPanel implements ActionListener {
         timer = new Timer(1000 / 60, this);
         player = new Player(300,300, 30,30);
         for(int x = 150; x<30000; x+=300){
-            platforms.add(new Platform(Color.red, x, 400, 150, 150));
+            platforms.add(new Platform(Color.red, x, 400, 150, 30));
         }
         //traps.add(new sawTrap(375+300,400-100));
-        traps.add(new sawTrap(375+300,400-100, 5,30,240));
-        traps.add(new sawTrap(375+300,400-100, -5,60,210));
-        traps.add(new sawTrap(375+300,400-100, 5,90,180));
-        traps.add(new sawTrap(375+300,400-100, -5,120,150));
 
-        traps.add(new sawTrap(375+300,400-100, 5,150,120));
-        traps.add(new sawTrap(375+300,400-100, -5,180,90));
-        traps.add(new sawTrap(375+300,400-100, 5,210,60));
-        traps.add(new sawTrap(375+300,400-100, -5,240,30));
+
+        traps.add(new sawTrap(375+300,400-100, 2,90, 200, 0));
+        traps.add(new sawTrap(375+300,400-100, 2,90, 200, 90));
+        traps.add(new sawTrap(375+300,400-100, 2,90, 200, 180));
+        traps.add(new sawTrap(375+300,400-100, 2,90, 200, 270));
+
 
     }
     public void start(){
@@ -42,11 +40,12 @@ public class Board extends JPanel implements ActionListener {
         g.setColor(Color.blue);
         player.paint(g);
 
-        for(Platform platform: platforms)
-            platform.paint(g);
+
         g.setColor(Color.green);
         for (sawTrap trap: traps)
-        trap.paint(g);
+            trap.paint(g);
+        for(Platform platform: platforms)
+            platform.paint(g);
     }
 
 

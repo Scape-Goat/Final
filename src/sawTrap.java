@@ -2,7 +2,8 @@ import java.awt.*;
 
 public class sawTrap {
 
-    int x, y, xCenter, yCenter, speed = 0, orbitWidth = 0, orbitHeight = 0, width = 30, height = 30, angle = 0;
+    int x, y, xCenter, yCenter, speed = 0, orbitWidth = 0, orbitHeight = 0, width = 30, height = 30;
+    float angle = 0;
 
     /****
      *
@@ -38,12 +39,13 @@ public class sawTrap {
      * @param width
      * @param height
      */
-    public sawTrap(int x, int y, int speed, int width, int height){
+    public sawTrap(int x, int y, int speed, int width, int height, float startAngle){
         xCenter = x;
         yCenter = y;
         this.speed = speed;
         orbitWidth = width;
         orbitHeight = height;
+        angle = startAngle;
     }
 
     public void update(Player player){
