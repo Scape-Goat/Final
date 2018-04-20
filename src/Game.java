@@ -66,12 +66,10 @@ public class Game extends JFrame{
 
                 if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT){
                     left = true;
-                    System.out.println(jump);
                 }
 
                 if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT){
                     right = true;
-                    System.out.println(jump);
                 }
 
                 if(e.getKeyCode() == KeyEvent.VK_SPACE && !jump){
