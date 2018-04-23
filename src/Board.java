@@ -19,16 +19,15 @@ public class Board extends JPanel implements ActionListener {
         setBackground(Color.black);
         timer = new Timer(1000 / 60, this);
         player = new Player(300,300, 30,30);
-        for(int x = 150; x<30000; x+=300){
-            platforms.add(new Platform(Color.red, x, 400, 150, 30));
+        for(int x = 150; x<30000; x+=165){
+            platforms.add(new Platform(Color.red, x, 450, 150, 29));
+            platforms.add(new Platform(Color.red, x+150, 420, 150, 29));
+
         }
         //traps.add(new sawTrap(375+300,400-100));
 
 
-        traps.add(new sawTrap(375+300,400-100, 2,90, 200, 0));
-        traps.add(new sawTrap(375+300,400-100, 2,90, 200, 90));
-        traps.add(new sawTrap(375+300,400-100, 2,90, 200, 180));
-        traps.add(new sawTrap(375+300,400-100, 2,90, 200, 270));
+
 
 
     }
@@ -46,6 +45,7 @@ public class Board extends JPanel implements ActionListener {
             trap.paint(g);
         for(Platform platform: platforms)
             platform.paint(g);
+        g.drawLine(-100,300,700, 300);
     }
 
 

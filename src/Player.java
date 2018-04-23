@@ -5,6 +5,7 @@ import java.util.List;
 public class Player {
     boolean jumping = false;
     boolean onGround = false;
+    boolean ableRight = true, ableLeft = true;
     int angle = 0;
     int x, y, width, height, dx = 0, dy = 0;
 
@@ -18,15 +19,22 @@ public class Player {
     public void update(List<Platform> platforms){
 
         //region Move Left and Right
-
+        for(Platform platform: platforms) {
+            if(x+width+1 > platform.x && ((y+height < platform.y + platform.height && y+height > y  )   y>)){
+                ableRight = false
+            }
             if (Game.isLeft() && !Game.isRight()) {
-                dx = -7;
+                dx = -10;
 
             } else if (Game.isRight() && !Game.isLeft()) {
-                dx = 7;
+                dx = 10;
             } else {
-                dx = 0;
+                if (dx > 0)
+                    dx -= 1;
+                else if (dx < 0)
+                    dx += 1;
             }
+        }
 
 
         //endregion
@@ -39,11 +47,20 @@ public class Player {
                 onGround = false;
             for(Platform platform: platforms) {
                 if (getBounds().intersects(platform.getBounds())) {
-                    dy = 0;
-                    jumping = false;
 
-                    if (y+height-1 > platform.y) {
+
+                    dy = 0;
+
+
+
+
+                    if (y+height-1 > platform.y && y<platform.y) {
                         dy = -1;
+                        jumping = false;
+                    }
+                    else if(y > platform.y){
+                        dy+=1;
+
                     }
                     onGround = true;
                     break;
@@ -51,6 +68,7 @@ public class Player {
                 }
             }
             if(!onGround)
+                if(dy<15)
                 dy +=1;
 
 
