@@ -21,7 +21,7 @@ public class Board extends JPanel implements ActionListener {
         player = new Player(300,300, 30,30);
         for(int x = 150; x<30000; x+=165){
             platforms.add(new Platform(Color.red, x, 450, 150, 29));
-            platforms.add(new Platform(Color.red, x+150, 420, 150, 29));
+            platforms.add(new Platform(Color.red, x+150, 300, 150, 29));
 
         }
         //traps.add(new sawTrap(375+300,400-100));

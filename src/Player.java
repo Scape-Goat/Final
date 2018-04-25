@@ -20,9 +20,6 @@ public class Player {
 
         //region Move Left and Right
         for(Platform platform: platforms) {
-            if(x+width+1 > platform.x && ((y+height < platform.y + platform.height && y+height > y  )   y>)){
-                ableRight = false
-            }
             if (Game.isLeft() && !Game.isRight()) {
                 dx = -10;
 
@@ -57,12 +54,14 @@ public class Player {
                     if (y+height-1 > platform.y && y<platform.y) {
                         dy = -1;
                         jumping = false;
+                        onGround = true;
                     }
                     else if(y > platform.y){
-                        dy+=1;
+                        onGround = false;
+                        ;
 
                     }
-                    onGround = true;
+
                     break;
 
                 }
